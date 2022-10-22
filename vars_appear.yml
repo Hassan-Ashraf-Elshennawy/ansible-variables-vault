@@ -1,0 +1,16 @@
+---
+- name: playbook to test ansible vault
+  hosts: localhost
+  gather_facts: no
+  #vars will appear during run time
+  vars: 
+    user_name: hassan
+    user_password: 1234
+
+  tasks:
+   - name: show user name
+     ansible.builtin.debug:
+       var: user_name
+   - name: show user pass
+     ansible.builtin.debug:
+       var: user_password
