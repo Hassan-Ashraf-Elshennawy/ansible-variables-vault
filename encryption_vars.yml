@@ -1,0 +1,17 @@
+---
+- name: playbook to test ansible vault
+  hosts: localhost
+  gather_facts: no
+  vars_files: 
+  #run this command on the path you want to encrypt
+  #ansible-vault encrypt vars/secret.yml
+    - vars/secret.yml
+   
+
+  tasks:
+   - name: show user name
+     ansible.builtin.debug:
+       var: user_name
+   - name: show user pass
+     ansible.builtin.debug:
+       var: user_password
