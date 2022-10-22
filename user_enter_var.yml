@@ -1,0 +1,19 @@
+---
+- name: playbook to test ansible vault
+  hosts: localhost
+  gather_facts: no
+  #user enter the varible during run time
+  #can't use this way during automation
+  vars_prompt: 
+   - name: user_name
+     prompt: enter user name
+   - name: user_password
+     prompt: enter user password
+
+  tasks:
+   - name: show user name
+     ansible.builtin.debug:
+       var: user_name
+   - name: show user pass
+     ansible.builtin.debug:
+       var: user_password
